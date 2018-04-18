@@ -48,7 +48,7 @@ const clientRouter = require('./src/route/client_router')
 /**
  * Subscribe
  */
-app.use('/client', clientRouter(jsonParser, clientValidator, clientController));
+app.use('/client', clientRouter(jsonParser, clientValidator, clientController, client));
 
 //Default error handler
 app.use(errorHandler)
