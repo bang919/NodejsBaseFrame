@@ -1,0 +1,12 @@
+{
+  "name": "baseframe",
+  "version": "0.0.0",
+  "private": true,
+  "main": "api.js",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "express": "~4.15.5",
+    "mongodb": "^3.0.7",
+    "morgan": "~1.9.0"
+  }
+}
