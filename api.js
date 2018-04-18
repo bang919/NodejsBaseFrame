@@ -1,3 +1,5 @@
+var configuration = require('./config/configuration')
+var Language = configuration.language
 var express = require('express');
 var package = require('./package.json')
 var http = require('http');
@@ -5,7 +7,8 @@ var app = express();
 
 var server = http.createServer(app);
 
-server.listen('3000');
+server.listen(configuration.port);
+
 server.on('listening', onListening);
 
 function onListening() {
@@ -13,7 +16,7 @@ function onListening() {
     var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-    console.log(package.name + ' api start : ' + bind)
+    console.log(package.name + Language.API_START + bind)
 }
 
 /**

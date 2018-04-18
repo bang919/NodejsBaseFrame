@@ -1,6 +1,6 @@
 let mongoConfig = {
     host: "localhost:27017",
-    database: "baseframedb",
+    database: "pttdb",
     user: null,
     password: null
 }

@@ -1,10 +1,13 @@
 const DefaultError = require('../lib/default_error');
+const Client = require('../model/client')
 
 module.exports = {
-    register : 
-        async function(req, res){
+    register : function() {
+        return async function(req, res){
             let body = req.body;
-            throw new DefaultError('400','error in controller')
-            res.send('client_controller')
+            let client_name = body[Client.client_name];
+            let password = body[Client.password];
+            res.send('client_controller ' + client_name)
         }
+    }
 }
