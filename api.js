@@ -26,19 +26,26 @@ const jsonParser = require('body-parser').json({limit:'5mb'})
  * Model
  */
 let client = new require('./src/model/client')
-let device = new require('./src/model/device')
-
-/**
- * Routers
- */
-const deviceRouter = require('./src/route/device_router')
 
 /**
  * Controllers
  */
-const deviceController = require('./src/controller/device_controller')
+const clientController = require('./src/controller/client_controller')
 
-app.use('/device',deviceRouter(jsonParser, deviceController));
+/**
+ * Validators
+ */
+const clientValidator = require('./src/validator/client_validator')
+
+/**
+ * Routers
+ */
+const clientRouter = require('./src/route/client_router')
+
+/**
+ * Subscribe
+ */
+app.use('/client', clientRouter(jsonParser, clientValidator, clientController));
 
 //Default error handler
 app.use(errorHandler)
